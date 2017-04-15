@@ -191,11 +191,13 @@ public class Trie {
 				character = Character.toLowerCase(character);
 			}
 
-			if (trieConfig.isIgnoreStopwords() && stopwords.contains(character)) {
+			boolean isFailed = currentState.isFailed(character);
+
+			if (trieConfig.isIgnoreStopwords() && stopwords.contains(character) && isFailed) {
 				continue;
 			}
 
-			if (trieConfig.isFilterRepeatChars() && character.equals(previousChar)) {
+			if (trieConfig.isFilterRepeatChars() && character.equals(previousChar) && isFailed) {
 				continue;
 			}
 			previousChar = character;
@@ -521,9 +523,6 @@ public class Trie {
 		/**
 		 * Configure the Trie to filter repeat chars when searching for keywords
 		 * in the text. For example, "fuuccck" would match the keyword "fuck".
-		 * But as a side effict, "fuuccck" would not match the keyword
-		 * "fuuccck". So it's strongly recommended not to enabled this feature
-		 * unless you reallly need it.
 		 *
 		 * @return This builder.
 		 */
