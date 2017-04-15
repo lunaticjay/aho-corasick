@@ -225,7 +225,7 @@ public class TrieTest {
 
     @Test
     public void nonOverlapping() {
-        Trie trie = Trie.builder().removeOverlaps()
+        Trie trie = Trie.builder()
                 .addKeyword("ab")
                 .addKeyword("cba")
                 .addKeyword("ababc")
@@ -240,7 +240,7 @@ public class TrieTest {
 
     @Test
     public void nonOverlappingFirstMatch() {
-        Trie trie = Trie.builder().removeOverlaps()
+        Trie trie = Trie.builder()
                 .addKeyword("ab")
                 .addKeyword("cba")
                 .addKeyword("ababc")
@@ -252,7 +252,7 @@ public class TrieTest {
 
     @Test
     public void containsMatch() {
-        Trie trie = Trie.builder().removeOverlaps()
+        Trie trie = Trie.builder()
                 .addKeyword("ab")
                 .addKeyword("cba")
                 .addKeyword("ababc")
@@ -262,7 +262,7 @@ public class TrieTest {
 
     @Test
     public void startOfChurchillSpeech() {
-        Trie trie = Trie.builder().removeOverlaps()
+        Trie trie = Trie.builder()
                 .addKeyword("T")
                 .addKeyword("u")
                 .addKeyword("ur")
@@ -368,7 +368,7 @@ public class TrieTest {
     // @see https://github.com/robert-bor/aho-corasick/issues/7
     @Test
     public void testZeroLength() {
-        Trie trie = Trie.builder().ignoreOverlaps().onlyWholeWords().ignoreCase()
+        Trie trie = Trie.builder().onlyWholeWords().ignoreCase()
                 .addKeyword("")
                 .build();
         trie.tokenize("Try a natural lip and subtle bronzer to keep all the focus on those big bright eyes with NARS Eyeshadow Duo in Rated R And the winner is... Boots No7 Advanced Renewal Anti-ageing Glycolic Peel Kit ($25 amazon.com) won most-appealing peel.");
