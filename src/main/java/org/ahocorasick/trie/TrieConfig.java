@@ -2,7 +2,7 @@ package org.ahocorasick.trie;
 
 public class TrieConfig {
 
-    private boolean allowOverlaps = true;
+    private boolean allowOverlaps = false;
 
     private boolean onlyWholeWords = false;
 
@@ -11,6 +11,10 @@ public class TrieConfig {
     private boolean caseInsensitive = false;
 
     private boolean stopOnHit = false;
+    
+    private boolean filterRepeatChars = false;
+    
+    private boolean ignoreStopwords = false;
 
     public boolean isStopOnHit() {
         return stopOnHit;
@@ -51,4 +55,21 @@ public class TrieConfig {
     public void setCaseInsensitive(boolean caseInsensitive) {
         this.caseInsensitive = caseInsensitive;
     }
+
+	public boolean isFilterRepeatChars() {
+		return filterRepeatChars;
+	}
+
+	public void setFilterRepeatChars(boolean filterRepeatChars) {
+		this.filterRepeatChars = filterRepeatChars;
+	}
+
+	public boolean isIgnoreStopwords() {
+		return ignoreStopwords;
+	}
+
+	public void setIgnoreStopwords(boolean ignoreStopwords) {
+		this.ignoreStopwords = ignoreStopwords;
+	}
+
 }
