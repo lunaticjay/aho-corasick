@@ -2,6 +2,7 @@ package org.ahocorasick.trie;
 
 import org.ahocorasick.interval.IntervalTree;
 import org.ahocorasick.interval.Intervalable;
+import org.ahocorasick.sensitiveword.SensitiveWordCtx;
 import org.ahocorasick.trie.handler.DefaultEmitHandler;
 import org.ahocorasick.trie.handler.EmitHandler;
 
@@ -166,6 +167,8 @@ public class Trie {
 		if (trieConfig.isOnlyWholeWordsWhiteSpaceSeparated()) {
 			removePartialMatchesWhiteSpaceSeparated(text, collectedEmits);
 		}
+		
+		SensitiveWordCtx.proccessExpressEmits(collectedEmits);
 
 		if (!trieConfig.isAllowOverlaps()) {
 			IntervalTree intervalTree = new IntervalTree((List<Intervalable>) (List<?>) collectedEmits);
